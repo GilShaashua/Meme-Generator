@@ -35,10 +35,12 @@
                     <canvas width="400" height="400"></canvas>
                 </article>
                 <article class="editor-container">
-                    <input type="text" placeholder="Write your Meme" oninput="onChangeTxtInp(this.value, 0)" />
-                    <input type="color" name="" id="inp-color" oninput="onChangeColor(this.value)" />
-                    <button class="increase-size" onclick="onIncreaseSize()">Increase Size</button>
-                    <button class="decrease-size" onclick="onDecreaseSize()">Decrease Size</button>
+                    <input type="text" placeholder="Write your Meme" oninput="onChangeTxtInp(this.value)" />
+                    <input type="color" name="" id="inp-color" value="#ffffff" oninput="onChangeColor(this.value)" />
+                    <button class="btn-increase-size" onclick="onIncreaseSize()">Increase Size</button>
+                    <button class="btn-decrease-size" onclick="onDecreaseSize()">Decrease Size</button>
+                    <button class="btn-decrease-size" onclick="onAddLine()">Add Line</button>
+                    <button class="btn-switch-line">Switch Line</button>
                 </article>
             </article>
         </section>

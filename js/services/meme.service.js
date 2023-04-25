@@ -35,20 +35,31 @@ function setImg(imgId) {
     gMeme.selectedImgId = imgId
 }
 
-function setLineTxt(txtValue, inputNum = 0) {
-    gMeme.lines[inputNum].txt = txtValue
+function setLineTxt(txtValue, lineIdx = 0) {
+    gMeme.lines[lineIdx].txt = txtValue
 }
 
-function changeColor(color, lineNum = 0) {
-    gMeme.lines[lineNum].color = color
+function changeColor(color, lineIdx = 0) {
+    gMeme.lines[lineIdx].color = color
 }
 
-function increaseSize(lineNum = 0) {
-    gMeme.lines[lineNum].size = gMeme.lines[lineNum].size + 1
+function increaseSize(lineIdx = 0) {
+    gMeme.lines[lineIdx].size = gMeme.lines[lineIdx].size + 1
 }
 
-function decreaseSize(lineNum = 0) {
-    gMeme.lines[lineNum].size = gMeme.lines[lineNum].size - 1
+function decreaseSize(lineIdx = 0) {
+    gMeme.lines[lineIdx].size = gMeme.lines[lineIdx].size - 1
+}
+
+function addLine(color, align = 'middle', size = 30) {
+    const newLine = {
+        txt: 'Write your Meme',
+        size,
+        align,
+        color
+    }
+
+    gMeme.lines.push(newLine)
 }
 
 function _createImgs() {
