@@ -11,7 +11,7 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'Write your Meme',
             size: 30,
             align: 'middle',
             color: 'white'
@@ -37,6 +37,18 @@ function setImg(imgId) {
 
 function setLineTxt(txtValue, inputNum = 0) {
     gMeme.lines[inputNum].txt = txtValue
+}
+
+function changeColor(color, lineNum = 0) {
+    gMeme.lines[lineNum].color = color
+}
+
+function increaseSize(lineNum = 0) {
+    gMeme.lines[lineNum].size = gMeme.lines[lineNum].size + 1
+}
+
+function decreaseSize(lineNum = 0) {
+    gMeme.lines[lineNum].size = gMeme.lines[lineNum].size - 1
 }
 
 function _createImgs() {

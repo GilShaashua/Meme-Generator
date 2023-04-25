@@ -1,9 +1,13 @@
+.meme-editor-section {
+    display: none;
+}
+
 .canvas-container {
     width: 60vw;
     height: 40vh;
     margin: auto;
 }
 
-canvas {
+/* canvas {
     border: 1px solid black;
-}
+} */

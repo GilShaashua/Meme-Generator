@@ -35,13 +35,16 @@
                     <canvas width="400" height="400"></canvas>
                 </article>
                 <article class="editor-container">
-                    <input type="text" placeholder="write your meme" oninput="onChangeTxtInp(this.value, 0)">
+                    <input type="text" placeholder="Write your Meme" oninput="onChangeTxtInp(this.value, 0)" />
+                    <input type="color" name="" id="inp-color" oninput="onChangeColor(this.value)" />
+                    <button class="increase-size" onclick="onIncreaseSize()">Increase Size</button>
+                    <button class="decrease-size" onclick="onDecreaseSize()">Decrease Size</button>
                 </article>
             </article>
         </section>
     </main>
 
-    <footer class="main-footer full">
+    <footer class=" main-footer full">
         <article class="logo-container">
             <img src="img/LOGO/main-logo.png" alt="" class="logo">
         </article>

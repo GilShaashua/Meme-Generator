@@ -3,11 +3,10 @@
 let gElCanvas
 let gCtx
 
-function onInit() {
+function openEditor() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    renderGallery()
     resizeCanvas()
     addListeners()
     renderCanvas()
@@ -26,11 +25,12 @@ function addListeners() {
     window.addEventListener('resize', () => {
         resizeCanvas()
         renderCanvas()
+        renderMeme()
     })
 }
 
 function renderCanvas() {
-    gCtx.fillStyle = '#ede5ff'
+    gCtx.fillStyle = 'white'
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
@@ -65,7 +65,22 @@ function drawText(text, x, y, color, align, size) {
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
 }
 
-function onChangeTxtInp(txtValue, inputNum = 0) {
-    setLineTxt(txtValue, inputNum)
+function onChangeTxtInp(txtValue, lineNum = 0) {
+    setLineTxt(txtValue, lineNum)
+    renderMeme()
+}
+
+function onChangeColor(color, lineNum = 0) {
+    changeColor(color, lineNum)
+    renderMeme()
+}
+
+function onIncreaseSize(lineNum = 0) {
+    increaseSize(lineNum)
+    renderMeme()
+}
+
+function onDecreaseSize(lineNum = 0) {
+    decreaseSize(lineNum)
     renderMeme()
 }
