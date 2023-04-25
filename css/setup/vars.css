@@ -1,0 +1,14 @@
+:root {
+    /* PALLETE */
+    --clr1: #ff7f00;
+    --clr2: #ffffff;
+    --clr3: rgb(180, 180, 180);
+
+
+    /* LAYOUT */
+    --layout-padding: 2rem;
+    --site-width: 1fr;
+    /* --l: 980px;
+    --m: 860px;
+    --s: 720px */
+}

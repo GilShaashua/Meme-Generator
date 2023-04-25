@@ -1,0 +1,9 @@
+.canvas-container {
+    width: 60vw;
+    height: 40vh;
+    margin: auto;
+}
+
+canvas {
+    border: 1px solid black;
+}

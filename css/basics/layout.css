@@ -1,0 +1,43 @@
+/* MAIN LAYOUT */
+.main-layout {
+    display: grid;
+    min-height: 100%;
+    grid-template-columns:
+        var(--layout-padding) var(--site-width) var(--layout-padding);
+    /* we have 3 rows: header, main and footer. We want the main content to fill the empty space when the content doesn't fill the viewport */
+    grid-template-rows: auto 1fr auto;
+}
+
+.main-layout>*:not(.full) {
+    grid-column: 2;
+}
+
+.main-layout>*.full {
+    grid-column: 1/-1;
+}
+
+/* HEADER LAYOUT */
+.main-header {
+    display: grid;
+    grid-template-columns:
+        var(--layout-padding) var(--site-width) var(--layout-padding);
+}
+
+.main-header-container {
+    grid-column: 2;
+}
+
+/* GALLERY LAYOUT */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* FOOTER LAYOUT */
+.main-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,6 @@
+.main-footer {
+    background-color: var(--clr1);
+    height: 100px;
+    text-align: center;
+    color: var(--clr2);
+}
