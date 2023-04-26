@@ -20,6 +20,7 @@ let gMeme = {
 }
 
 let gNextId = 1
+let gLineIdx = 0
 
 _createImgs()
 
@@ -35,19 +36,19 @@ function setImg(imgId) {
     gMeme.selectedImgId = imgId
 }
 
-function setLineTxt(txtValue, lineIdx = 0) {
+function setLineTxt(txtValue, lineIdx) {
     gMeme.lines[lineIdx].txt = txtValue
 }
 
-function changeColor(color, lineIdx = 0) {
+function changeColor(color, lineIdx) {
     gMeme.lines[lineIdx].color = color
 }
 
-function increaseSize(lineIdx = 0) {
+function increaseSize(lineIdx) {
     gMeme.lines[lineIdx].size = gMeme.lines[lineIdx].size + 1
 }
 
-function decreaseSize(lineIdx = 0) {
+function decreaseSize(lineIdx) {
     gMeme.lines[lineIdx].size = gMeme.lines[lineIdx].size - 1
 }
 
@@ -60,6 +61,25 @@ function addLine(color, align = 'middle', size = 30) {
     }
 
     gMeme.lines.push(newLine)
+    gMeme.selectedLineIdx = 1
+    gLineIdx = 1
+}
+
+function switchLine() {
+    if (gMeme.lines.length === 1) return
+    if (gMeme.selectedLineIdx) {
+        gMeme.selectedLineIdx = 0
+        gLineIdx = 0
+    } else {
+        gMeme.selectedLineIdx = 1
+        gLineIdx = 1
+    }
+
+    return gMeme.selectedLineIdx
+}
+
+function getLineIdx() {
+    return gLineIdx
 }
 
 function _createImgs() {
