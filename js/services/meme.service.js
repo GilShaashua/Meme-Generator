@@ -52,7 +52,26 @@ function decreaseSize(lineIdx) {
     gMeme.lines[lineIdx].size = gMeme.lines[lineIdx].size - 1
 }
 
-function addLine(color, align = 'middle', size = 30) {
+function alignLeft(lineIdx) {
+    gMeme.lines[lineIdx].align = 'start'
+}
+
+function alignRight(lineIdx) {
+    gMeme.lines[lineIdx].align = 'end'
+}
+
+function alignCenter(lineIdx) {
+    gMeme.lines[lineIdx].align = 'middle'
+}
+
+function deleteLine(lineIdx) {
+    if (gMeme.lines.length === 1) return
+    const deletedLine = gMeme.lines.splice(lineIdx, 1)
+    gMeme.selectedLineIdx = 0
+    gLineIdx = 0
+}
+
+function addLine(color = 'white', align = 'middle', size = 30) {
     const newLine = {
         txt: 'Write your Meme',
         size,

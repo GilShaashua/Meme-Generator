@@ -39,10 +39,13 @@
                     <canvas width="400" height="400"></canvas>
                 </article>
                 <article class="editor-container">
-                    <article class="inp-text-container">
-                        <input type="text" class="inp-text" placeholder="Write your Meme"
-                            oninput="onChangeTxtInp(this.value)" />
-                    </article>
+                    <form onsubmit="onSubmitTxtInp(event)">
+                        <article class="inp-text-container">
+                            <input type="text" class="inp-text" placeholder="Write your Meme"
+                                oninput="onChangeTxtInp(this.value)" onblur="onBlurTxtInp(this)" />
+                        </article>
+                    </form>
+
                     <article class="btns-container">
                         <article class="container">
                             <input type="color" name="" id="inp-color" value="#ffffff" title="Change color"
@@ -59,8 +62,21 @@
                             <img src="img/ICONS/add.png" alt="" />
                         </button>
                         <button class="btn switch-line" title="Switch line" onclick="onSwitchLine()">
-                            <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                            <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" />
                         </button>
+                        <button class="btn align-left" title="Align left" onclick="onAlignLeft()">
+                            <img src="img/ICONS//align-to-left.png" alt="" />
+                        </button>
+                        <button class="btn align-center" title="Align center" onclick="onAlignCenter()">
+                            <img src="img/ICONS/center-text-alignment.png" alt="" />
+                        </button>
+                        <button class="btn align-right" title="Align right" onclick="onAlignRight()">
+                            <img src="img/ICONS/align-to-right.png" alt="" />
+                        </button>
+                        <button class="btn delete-line" title="Delete line" onclick="onDeleteLine()">
+                            <img src="img/ICONS/trash.png" alt="" />
+                        </button>
+
                     </article>
                 </article>
             </article>
