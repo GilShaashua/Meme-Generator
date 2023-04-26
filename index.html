@@ -35,12 +35,29 @@
                     <canvas width="400" height="400"></canvas>
                 </article>
                 <article class="editor-container">
-                    <input type="text" placeholder="Write your Meme" oninput="onChangeTxtInp(this.value)" />
-                    <input type="color" name="" id="inp-color" value="#ffffff" oninput="onChangeColor(this.value)" />
-                    <button class="btn-increase-size" onclick="onIncreaseSize()">Increase Size</button>
-                    <button class="btn-decrease-size" onclick="onDecreaseSize()">Decrease Size</button>
-                    <button class="btn-decrease-size" onclick="onAddLine()">Add Line</button>
-                    <button class="btn-switch-line" onclick="onSwitchLine()">Switch Line</button>
+                    <article class="inp-text-container">
+                        <input type="text" class="inp-text" placeholder="Write your Meme"
+                            oninput="onChangeTxtInp(this.value)" />
+                    </article>
+                    <article class="btns-container">
+                        <article class="container">
+                            <input type="color" name="" id="inp-color" value="#ffffff" title="Change color"
+                                oninput="onChangeColor(this.value)" />
+                            <label for="inp-color"></label>
+                        </article>
+                        <button class="btn increase-size" title="Increase font size" onclick="onIncreaseSize()">
+                            <img src="img/ICONS/increase font - icon.png" alt="" />
+                        </button>
+                        <button class="btn decrease-size" title="Deacrease font size" onclick="onDecreaseSize()">
+                            <img src="img/ICONS/decrease font - icon.png" alt="" />
+                        </button>
+                        <button class="btn decrease-size" title="Add line" onclick="onAddLine()">
+                            <img src="img/ICONS/add.png" alt="" />
+                        </button>
+                        <button class="btn switch-line" title="Switch line" onclick="onSwitchLine()">
+                            <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                        </button>
+                    </article>
                 </article>
             </article>
         </section>

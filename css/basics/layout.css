@@ -4,7 +4,6 @@
     min-height: 100%;
     grid-template-columns:
         var(--layout-padding) var(--site-width) var(--layout-padding);
-    /* we have 3 rows: header, main and footer. We want the main content to fill the empty space when the content doesn't fill the viewport */
     grid-template-rows: auto 1fr auto;
 }
 
@@ -27,11 +26,44 @@
     grid-column: 2;
 }
 
+/* MAIN CONTENT LAYOUT */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.main-content>* {
+    grid-column: 1/-1;
+}
+
 /* GALLERY LAYOUT */
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
+}
+
+/* EDITOR CANVAS LAYOUT */
+.meme-editor-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-container {
+    margin-block-start: 1.5rem;
+}
+
+.editor-container .inp-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 1rem
+}
+
+.meme-editor-container .btns-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* FOOTER LAYOUT */

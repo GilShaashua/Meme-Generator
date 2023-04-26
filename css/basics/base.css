@@ -8,15 +8,23 @@
 
 html {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--clr3);
+    color: var(--clr4);
     line-height: 1.25;
     height: 100%;
 }
 
 body {
     font-size: 1rem;
+    background-color: var(--clr3);
 }
 
 img {
     width: 100%;
+}
+
+button {
+    padding-block: 0.5rem;
+    padding-inline: 0.6rem;
+    border-style: none;
+    cursor: pointer;
 }

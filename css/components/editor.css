@@ -1,0 +1,28 @@
+.editor-container .btn {
+    margin-inline: 0.5rem;
+    margin-block: 0.5rem;
+    background-color: var(--clr2);
+    width: 2.5rem;
+    border-radius: 0.75rem;
+}
+
+.editor-container input {
+    margin-inline: 0.5rem;
+    margin-block: 0.5rem;
+}
+
+.editor-container .inp-text {
+    padding-block: 0.6rem;
+    padding-inline: 0.7rem;
+    border-style: none;
+    border-radius: 0.75rem;
+    width: 100%;
+}
+
+#inp-color {
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
