@@ -3,4 +3,9 @@
     height: 100px;
     text-align: center;
     color: var(--clr2);
+    padding-block: 4rem;
+}
+
+.main-footer .logo {
+    margin-block-end: 1rem;
 }

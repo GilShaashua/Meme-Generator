@@ -5,23 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ca7be1ff1b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>Meme Generator</title>
 </head>
 
 <body class="main-layout" onload="onInit()">
 
+    <article class="main-screen" onclick="onToggleMenu()"></article>
+
     <header class="main-header full flex space-between align-center justify-center">
         <article class="main-header-container flex space-between align-center">
             <article class="logo-container">
-                <img src="img/LOGO/main-logo.png" alt="" class="logo">
+                <img src="img/LOGO/main-logo.png" alt="" class="logo" onclick="onClickLogo()" />
             </article>
             <nav class="main-nav-container">
                 <ul class="main-nav clean-list flex">
-                    <li><a href="#" class="flex align-center justify-center">Gallery</a></li>
+                    <li onclick="onClickGallery()"><a href="#" class="flex align-center justify-center">Gallery</a></li>
                     <li><a href="#" class="flex align-center justify-center">About</a></li>
                 </ul>
             </nav>
+            <button class="menu-button" onclick="onToggleMenu()"><i class="fa-solid fa-bars"></i></button>
         </article>
     </header>
 
@@ -65,7 +69,7 @@
 
     <footer class=" main-footer full">
         <article class="logo-container">
-            <img src="img/LOGO/main-logo.png" alt="" class="logo">
+            <img src="img/LOGO/main-logo.png" alt="" class="logo" onclick="onClickLogo()" />
         </article>
         CoffeeRights 2023 | Gil Shaashua
     </footer>

@@ -9,7 +9,5 @@
     /* LAYOUT */
     --layout-padding: 2rem;
     --site-width: 1fr;
-    /* --l: 980px;
-    --m: 860px;
-    --s: 720px */
+    --editor-width: 750px;
 }

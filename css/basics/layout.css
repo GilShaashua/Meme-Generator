@@ -39,7 +39,7 @@
 /* GALLERY LAYOUT */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: minmax(200px, 1fr) repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
 }
 
@@ -72,4 +72,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width:790px) {
+
+    /* EDITOR CANVAS LAYOUT */
+    .meme-editor-container {
+        flex-direction: row;
+        max-width: var(--editor-width);
+    }
+
+    .meme-editor-container {
+        margin: 90px auto;
+    }
+
+    .editor-container {
+        padding-inline-start: 1rem;
+    }
 }

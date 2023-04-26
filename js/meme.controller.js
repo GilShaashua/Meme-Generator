@@ -2,24 +2,22 @@
 
 let gElCanvas
 let gCtx
-let posXLine1
-let posYLine1
-let posXline2
-let posYline2
+// let posXLine1
+// let posYLine1
+// let posXline2
+// let posYline2
 
 function openEditor() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    posXLine1 = gElCanvas.width - gElCanvas.width
-    posYLine1 = gElCanvas.height - (gElCanvas.height / 2)
-    posXline2 = gElCanvas.width - gElCanvas.width
-    posYline2 = gElCanvas.height - (gElCanvas.height / 2)
+    // posXLine1 = gElCanvas.width - gElCanvas.width
+    // posYLine1 = gElCanvas.height - (gElCanvas.height / 2)
+    // posXline2 = gElCanvas.width - gElCanvas.width
+    // posYline2 = gElCanvas.height - (gElCanvas.height / 2)
 
     resizeCanvas()
     addListeners()
-    renderCanvas()
 }
-
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
@@ -32,7 +30,6 @@ function addListeners() {
     // addTouchListeners()
     window.addEventListener('resize', () => {
         resizeCanvas()
-        // renderCanvas()
         renderMeme()
         resizeDrawFocus()
     })
@@ -47,11 +44,6 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
-}
-
-function renderCanvas() {
-    gCtx.fillStyle = 'white'
-    gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
 function renderMeme() {
@@ -80,13 +72,13 @@ function drawLines() {
         if (idx === 0) {
             x = (gElCanvas.width / 2) - (memeLine.txt.length * 6)
             y = gElCanvas.height / 8
-            posXLine1 = x
-            posYLine1 = y
+            // posXLine1 = x
+            // posYLine1 = y
         } else if (idx === 1) {
             x = (gElCanvas.width / 2) - (memeLine.txt.length * 6)
             y = gElCanvas.height - 40
-            posXline2 = x
-            posYline2 = y
+            // posXline2 = x
+            // posYline2 = y
         }
         gCtx.lineWidth = 1
         gCtx.strokeStyle = 'black'

@@ -1,3 +1,7 @@
 .gallery-container {
-    margin-block: 5em;
+    margin-block: 2rem;
+}
+
+.gallery-container img {
+    cursor: pointer;
 }
