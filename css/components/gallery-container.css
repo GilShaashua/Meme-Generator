@@ -4,4 +4,9 @@
 
 .gallery-container img {
     cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-container img:hover {
+    opacity: 0.5;
 }

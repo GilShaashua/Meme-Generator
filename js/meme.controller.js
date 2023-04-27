@@ -91,7 +91,7 @@ function drawLines() {
         gCtx.lineWidth = 1
         gCtx.strokeStyle = 'black'
         gCtx.fillStyle = memeLine.color
-        gCtx.font = memeLine.size + 'px Impact'
+        gCtx.font = memeLine.size + 'px ' + memeLine.font
         gCtx.textBaseline = 'middle'
 
         gCtx.fillText(memeLine.txt, x, y)
@@ -161,6 +161,12 @@ function onDeleteLine() {
     conditionRenderMemeDrawFocus()
 }
 
+function onFontSelect(value) {
+    const memeLineIdx = getMeme().selectedLineIdx
+    fontSelect(memeLineIdx, value)
+    conditionRenderMemeDrawFocus()
+}
+
 function onAddLine() {
     if (getMeme().lines.length === 2) return
     const inpColor = document.querySelector('#inp-color').value
@@ -172,6 +178,14 @@ function onSwitchLine() {
     if (getMeme().lines.length === 1) return
     switchLine()
     conditionRenderMemeDrawFocus()
+}
+
+function onDownloadImg(elLink) {
+    renderMeme()
+    setTimeout(() => {
+        const imgContent = gElCanvas.toDataURL('image/jpeg')
+        elLink.href = imgContent
+    }, 1)
 }
 
 function conditionRenderMemeDrawFocus() {

@@ -14,7 +14,8 @@ let gMeme = {
             txt: 'Write your Meme',
             size: 30,
             align: 'middle',
-            color: 'white'
+            color: 'white',
+            font: 'Impact'
         }
     ]
 }
@@ -71,12 +72,17 @@ function deleteLine(lineIdx) {
     gLineIdx = 0
 }
 
-function addLine(color = 'white', align = 'middle', size = 30) {
+function fontSelect(lineIdx, value) {
+    gMeme.lines[lineIdx].font = value
+}
+
+function addLine(color = 'white', align = 'middle', size = 30, font = 'Impact') {
     const newLine = {
         txt: 'Write your Meme',
         size,
         align,
-        color
+        color,
+        font
     }
 
     gMeme.lines.push(newLine)

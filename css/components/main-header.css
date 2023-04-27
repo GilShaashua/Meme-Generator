@@ -10,6 +10,11 @@
 .main-nav li a {
     text-decoration: none;
     color: var(--clr2);
+    transition: color 0.1s ease-in-out;
+}
+
+.main-nav li a:hover {
+    color: var(--clr3);
 }
 
 .menu-button {
@@ -42,6 +47,10 @@
     .main-nav {
         flex-direction: column;
         margin-block-start: 50px;
+    }
+
+    .main-header .main-nav li {
+        margin-inline-start: 0;
     }
 
     .main-header .main-nav a {

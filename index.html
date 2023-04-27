@@ -20,7 +20,7 @@
                 <img src="img/LOGO/main-logo.png" alt="" class="logo" onclick="onClickLogo()" />
             </article>
             <nav class="main-nav-container">
-                <ul class="main-nav clean-list flex">
+                <ul class="main-nav clean-list flex align-center justify-center">
                     <li onclick="onClickGallery()"><a href="#" class="flex align-center justify-center">Gallery</a></li>
                     <li><a href="#" class="flex align-center justify-center">About</a></li>
                 </ul>
@@ -76,7 +76,12 @@
                         <button class="btn delete-line" title="Delete line" onclick="onDeleteLine()">
                             <img src="img/ICONS/trash.png" alt="" />
                         </button>
-
+                        <select name="font-selection" id="font-selection" onchange="onFontSelect(this.value)">
+                            <option value="Impact">Impact</option>
+                            <option value="Arial">Arial</option>
+                        </select>
+                        <a href="#" class="btn download-meme" onclick="onDownloadImg(this)"
+                            download="my-meme.jpg">Download</a>
                     </article>
                 </article>
             </article>

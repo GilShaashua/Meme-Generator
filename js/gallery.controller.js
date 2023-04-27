@@ -18,7 +18,7 @@ function onImgSelect(imgId) {
     elGalleryContainer.style.display = 'none'
     const elMemeEditorSection = document.querySelector('.meme-editor-section')
     elMemeEditorSection.style.display = 'block'
-    openEditor()
     setImg(imgId)
+    openEditor()
     conditionRenderMemeDrawFocus()
 }

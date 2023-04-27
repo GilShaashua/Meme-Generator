@@ -18,4 +18,5 @@ function onClickGallery() {
 
     const elMemeEditorContainer = document.querySelector('.meme-editor-section')
     elMemeEditorContainer.style.display = 'none'
+    onToggleMenu()
 }

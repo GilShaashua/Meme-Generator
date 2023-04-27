@@ -6,6 +6,10 @@
     border-radius: 0.75rem;
 }
 
+.editor-container .btn:hover {
+    background-color: var(--clr1);
+}
+
 .editor-container input {
     margin-inline: 0.5rem;
     margin-block: 0.5rem;
@@ -25,4 +29,12 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.btn.download-meme {
+    width: max-content;
+    padding-inline: 1.2rem;
+    padding-block: 0.5rem;
+    text-decoration: none;
+    color: var(--clr4);
 }
