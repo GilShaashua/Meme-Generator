@@ -1,0 +1,9 @@
+.saved-memes-section {
+    display: none;
+    padding-block: 1.5rem;
+}
+
+.saved-memes-section h1 {
+    text-align: center;
+    margin-block-end: 2rem;
+}

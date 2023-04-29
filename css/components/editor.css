@@ -31,7 +31,20 @@
     cursor: pointer;
 }
 
+#font-selection {
+    width: max-content;
+    padding: 0.625rem;
+}
+
 .btn.download-meme {
+    width: max-content;
+    padding-inline: 1.2rem;
+    padding-block: 0.5rem;
+    text-decoration: none;
+    color: var(--clr4);
+}
+
+.btn.save-meme {
     width: max-content;
     padding-inline: 1.2rem;
     padding-block: 0.5rem;

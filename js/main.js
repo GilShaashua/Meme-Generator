@@ -15,8 +15,9 @@ function onClickLogo() {
 function onClickGallery() {
     const elGalleryContainer = document.querySelector('.gallery-container')
     elGalleryContainer.style.display = 'grid'
-
     const elMemeEditorContainer = document.querySelector('.meme-editor-section')
     elMemeEditorContainer.style.display = 'none'
+    const elSavedMemeSection = document.querySelector('.saved-memes-section')
+    elSavedMemeSection.style.display = 'none'
     onToggleMenu()
 }

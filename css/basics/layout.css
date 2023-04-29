@@ -44,9 +44,24 @@
 }
 
 /* EDITOR CANVAS LAYOUT */
+.meme-editor-section {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-block-end: 1rem;
+}
+
 .meme-editor-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
 }
 
 .canvas-container {
@@ -67,6 +82,14 @@
     flex-wrap: wrap;
 }
 
+/* SAVED MEMES LAYOUT */
+.saved-memes-container {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) repeat(auto-fit, minmax(200px, 300px));
+    gap: 10px;
+    place-content: center;
+}
+
 /* FOOTER LAYOUT */
 .main-footer {
     display: flex;
@@ -83,11 +106,26 @@
         max-width: var(--editor-width);
     }
 
+    .meme-editor-section {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+
     .meme-editor-container {
-        margin: 90px auto;
+        /* margin: 1px auto; */
+        /* justify-items: center; */
+
     }
 
     .editor-container {
         padding-inline-start: 1rem;
+        width: 500px;
     }
+
+    .inp-text-container {
+        justify-self: flex-start;
+    }
+
 }
