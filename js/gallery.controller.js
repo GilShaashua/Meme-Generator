@@ -20,5 +20,5 @@ function onImgSelect(imgId) {
     elMemeEditorSection.style.display = 'block'
     setImg(imgId)
     openEditor()
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }

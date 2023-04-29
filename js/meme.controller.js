@@ -2,12 +2,13 @@
 
 let gElCanvas
 let gCtx
-
+let xyLine1
+let xyLine2
+let txtMetrix
 
 function openEditor() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-
     resizeCanvas()
     addListeners()
 }
@@ -19,24 +20,10 @@ function resizeCanvas() {
 }
 
 function addListeners() {
-    // addMouseListeners()
-    // addTouchListeners()
     window.addEventListener('resize', () => {
         resizeCanvas()
         renderMeme()
-        resizeDrawFocus()
     })
-}
-
-function resizeDrawFocus() {
-    if (!getLineIdx()) setTimeout(drawFocus, 10, 0, 0)
-    else setTimeout(drawFocus, 10, 0, gElCanvas.height - 116.5)
-}
-
-function addMouseListeners() {
-    gElCanvas.addEventListener('mousedown', onDown)
-    gElCanvas.addEventListener('mousemove', onMove)
-    gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function renderMeme() {
@@ -53,57 +40,61 @@ function drawImgFromlocal(imgUrl) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawLines()
+        drawFocus()
     }
 }
 
 function drawLines() {
     const memeLines = getMeme().lines
+    xyLine1 = { x: 0, y: 0 }
+    xyLine2 = { x: 0, y: 0 }
 
     memeLines.forEach((memeLine, idx) => {
-
-        let x
-        let y
-
         if (idx === 0) {
             if (memeLine.align === 'middle') {
-                x = (gElCanvas.width / 2) - ((memeLine.txt.length * memeLine.size) / 4)
-                y = gElCanvas.height / 8
+                xyLine1.x = (gElCanvas.width / 2) - ((memeLine.txt.length * memeLine.size) / 4)
+                xyLine1.y = gElCanvas.height / 8
             } else if (memeLine.align === 'start') {
-                x = 20
-                y = gElCanvas.height / 8
+                xyLine1.x = 20
+                xyLine1.y = gElCanvas.height / 8
             } else if (memeLine.align === 'end') {
-                x = gElCanvas.width - ((memeLine.txt.length * memeLine.size) / 2)
-                y = gElCanvas.height / 8
+                xyLine1.x = gElCanvas.width - ((memeLine.txt.length * memeLine.size) / 2)
+                xyLine1.y = gElCanvas.height / 8
             }
+            renderText(xyLine1.x, xyLine1.y, memeLine)
 
         } else if (idx === 1) {
             if (memeLine.align === 'middle') {
-                x = (gElCanvas.width / 2) - ((memeLine.txt.length * memeLine.size) / 4)
-                y = gElCanvas.height - 50
+                xyLine2.x = (gElCanvas.width / 2) - ((memeLine.txt.length * memeLine.size) / 4)
+                xyLine2.y = gElCanvas.height - 30
             } else if (memeLine.align === 'start') {
-                x = 20
-                y = gElCanvas.height - 50
+                xyLine2.x = 20
+                xyLine2.y = gElCanvas.height - 30
             } else if (memeLine.align === 'end') {
-                x = gElCanvas.width - ((memeLine.txt.length * memeLine.size) / 2)
-                y = gElCanvas.height - 50
+                xyLine2.x = gElCanvas.width - ((memeLine.txt.length * memeLine.size) / 2)
+                xyLine2.y = gElCanvas.height - 30
             }
+            renderText(xyLine2.x, xyLine2.y, memeLine)
         }
-        gCtx.lineWidth = 1
-        gCtx.strokeStyle = 'black'
-        gCtx.fillStyle = memeLine.color
-        gCtx.font = memeLine.size + 'px ' + memeLine.font
-        gCtx.textBaseline = 'middle'
-
-        gCtx.fillText(memeLine.txt, x, y)
-        gCtx.strokeText(memeLine.txt, x, y)
     })
+}
+
+function renderText(x, y, memeLine) {
+    txtMetrix = gCtx.measureText(getMeme().lines[getLineIdx()].txt)
+
+    gCtx.lineWidth = 1
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = memeLine.color
+    gCtx.font = memeLine.size + 'px ' + memeLine.font
+    gCtx.fillText(memeLine.txt, x, y)
+    gCtx.strokeText(memeLine.txt, x, y)
 }
 
 function onChangeTxtInp(txtValue) {
     const memeLineIdx = getMeme().selectedLineIdx
 
     setLineTxt(txtValue, memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onBlurTxtInp(elTxtInp) {
@@ -120,64 +111,64 @@ function onChangeColor(color) {
     const memeLineIdx = getMeme().selectedLineIdx
 
     changeColor(color, memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onIncreaseSize() {
     const memeLineIdx = getMeme().selectedLineIdx
 
     increaseSize(memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onDecreaseSize() {
     const memeLineIdx = getMeme().selectedLineIdx
 
     decreaseSize(memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onAlignLeft() {
     const memeLineIdx = getMeme().selectedLineIdx
     alignLeft(memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onAlignRight() {
     const memeLineIdx = getMeme().selectedLineIdx
     alignRight(memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onAlignCenter() {
     const memeLineIdx = getMeme().selectedLineIdx
     alignCenter(memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onDeleteLine() {
     const memeLineIdx = getMeme().selectedLineIdx
     deleteLine(memeLineIdx)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onFontSelect(value) {
     const memeLineIdx = getMeme().selectedLineIdx
     fontSelect(memeLineIdx, value)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onAddLine() {
     if (getMeme().lines.length === 2) return
     const inpColor = document.querySelector('#inp-color').value
     addLine(inpColor)
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onSwitchLine() {
     if (getMeme().lines.length === 1) return
     switchLine()
-    conditionRenderMemeDrawFocus()
+    renderMeme()
 }
 
 function onDownloadImg(elLink) {
@@ -188,17 +179,12 @@ function onDownloadImg(elLink) {
     }, 1)
 }
 
-function conditionRenderMemeDrawFocus() {
+function drawFocus() {
     if (!getLineIdx()) {
-        renderMeme()
-        setTimeout(drawFocus, 10, 0, 0)
+        gCtx.strokeStyle = 'red'
+        gCtx.strokeRect(0, 0, gElCanvas.width, gElCanvas.height / 5)
     } else {
-        renderMeme()
-        setTimeout(drawFocus, 10, 0, gElCanvas.height - 116.5)
+        gCtx.strokeStyle = 'red'
+        gCtx.strokeRect(0, gElCanvas.height - 85, gElCanvas.width, gElCanvas.height)
     }
-}
-
-function drawFocus(x, y) {
-    gCtx.strokeStyle = 'red'
-    gCtx.strokeRect(x, y, gElCanvas.width, gElCanvas.height / 4)
 }

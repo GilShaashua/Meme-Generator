@@ -3,7 +3,6 @@
 let gKeywordSearchCountMap = {
     'funny': 12, 'cat': 16, 'baby': 2
 }
-
 let gImgs
 
 let gMeme = {
