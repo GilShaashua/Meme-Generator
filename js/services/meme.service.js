@@ -225,6 +225,37 @@ function getLineIdx() {
     return gLineIdx
 }
 
+function filterSearchSubmit(value) {
+    const lowerCaseValue = value.toLowerCase()
+    const filteredGImgs = gImgs.filter(img => {
+        return img.keywords.find(keyword => keyword === lowerCaseValue)
+    })
+    return filteredGImgs
+}
+
+function setKeywordsOnImgs() {
+    gImgs.forEach((img, idx) => {
+        if (idx === 0) img.keywords.push('trump', 'minister')
+        if (idx === 1) img.keywords.push('dog', 'dogs', 'pet', 'pets')
+        if (idx === 2) img.keywords.push('dog', 'dogs', 'baby', 'babys', 'kid', 'kids')
+        if (idx === 3) img.keywords.push('cat', 'cats', 'pet', 'pets')
+        if (idx === 4) img.keywords.push('baby', 'babys', 'kid', 'kids')
+        if (idx === 5) img.keywords.push('person', 'persons', 'big', 'size', 'man', 'men')
+        if (idx === 6) img.keywords.push('baby', 'babys', 'kid', 'kids', 'black', 'blacks')
+        if (idx === 7) img.keywords.push('clown', 'clowns')
+        if (idx === 8) img.keywords.push('baby', 'babys', 'kid', 'kids')
+        if (idx === 9) img.keywords.push('obama', 'barak', 'minister')
+        if (idx === 10) img.keywords.push('fighting', 'fight', 'gay', 'gays')
+        if (idx === 11) img.keywords.push('person', 'persons', 'man', 'men')
+        if (idx === 12) img.keywords.push('person', 'persons', 'man', 'men')
+        if (idx === 13) img.keywords.push('person', 'persons', 'man', 'men', 'black', 'blacks')
+        if (idx === 14) img.keywords.push('person', 'persons', 'man', 'men')
+        if (idx === 15) img.keywords.push('person', 'persons', 'man', 'men')
+        if (idx === 16) img.keywords.push('person', 'persons', 'man', 'men', 'minister', 'putin')
+        if (idx === 17) img.keywords.push('baby', 'babys', 'kid', 'kids')
+    })
+}
+
 function _createImgs() {
     gImgs = []
     for (let i = 0; i < 18; i++) {
@@ -236,6 +267,6 @@ function _createImg() {
     return {
         url: `img/image-gallery/${gNextId}.jpg`,
         id: gNextId++,
-        keywords: ['funny', 'cat']
+        keywords: []
     }
 }

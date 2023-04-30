@@ -90,6 +90,22 @@
     place-content: center;
 }
 
+/* ABOUT-ME LAYOUT */
+.about-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.circle-container {
+    flex: 1;
+}
+
+.about-me-content {
+    flex: 1;
+}
+
 /* FOOTER LAYOUT */
 .main-footer {
     display: flex;
@@ -113,12 +129,6 @@
         align-items: center;
     }
 
-    .meme-editor-container {
-        /* margin: 1px auto; */
-        /* justify-items: center; */
-
-    }
-
     .editor-container {
         padding-inline-start: 1rem;
         width: 500px;
@@ -126,6 +136,14 @@
 
     .inp-text-container {
         justify-self: flex-start;
+    }
+
+    .about-section {
+        display: none;
+        flex-direction: row;
+        max-width: 800px;
+        align-items: center;
+        margin: auto;
     }
 
 }

@@ -1,0 +1,4 @@
+.about-section .circle-container img {
+    border-radius: 50%;
+    max-width: 20rem;
+}

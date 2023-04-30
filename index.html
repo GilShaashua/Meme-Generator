@@ -16,7 +16,7 @@
 
     <header class="main-header full flex space-between align-center justify-center">
         <article class="main-header-container flex space-between align-center">
-            <article class="logo-container">
+            <article class="logo-container flex align-center">
                 <img src="img/LOGO/main-logo.png" alt="" class="logo" onclick="onClickLogo()" />
             </article>
             <nav class="main-nav-container">
@@ -24,7 +24,7 @@
                     <li onclick="onClickGallery()"><a href="#" class="flex align-center justify-center">Gallery</a></li>
                     <li onclick="onClickSavedMemes()"><a href="#" class="flex align-center justify-center">Saved
                             Memes</a></li>
-                    <li><a href="#" class="flex align-center justify-center">About</a></li>
+                    <li onclick="onClickAboutMe()"><a href="#" class="flex align-center justify-center">About</a></li>
                 </ul>
             </nav>
             <button class="menu-button" onclick="onToggleMenu()"><i class="fa-solid fa-bars"></i></button>
@@ -32,8 +32,26 @@
     </header>
 
     <main class="main-content">
-        <section class="gallery-container">
-
+        <section class="main-gallery-container">
+            <section class="main-bar">
+                <form onsubmit="onSearchSubmit(event)">
+                    <input type="search" list="keywords" name="inp-search" id="inp-search" placeholder="Search images"
+                        onblur="onBlurSearchInp()">
+                    <datalist id="keywords">
+                        <option value="Trump">
+                        <option value="Minister">
+                        <option value="Dog">
+                        <option value="Baby">
+                        <option value="Person">
+                        <option value="Man">
+                        <option value="Clown">
+                        <option value="Kid">
+                        <option value="Obama">
+                        <option value="Fight">
+                    </datalist>
+                </form>
+            </section>
+            <section class="gallery-container"></section>
         </section>
         <section class="meme-editor-section">
             <article class="meme-editor-container">
@@ -93,6 +111,19 @@
         <section class="saved-memes-section">
             <h1>Saved Memes</h1>
             <article class="saved-memes-container"></article>
+        </section>
+
+        <section class="about-section">
+            <div class="circle-container">
+                <img src="img/about-me/me.jpg" alt="" />
+            </div>
+            <article class="about-me-content">
+                <h2>About Me</h2>
+                <p>My name is Gil and I study web development in Coding Academy.
+                    I am 30 years old and live in Petah Tikva, I have a dog named Kim and her breed is a poodle.
+                    I really like to sing and dance, laugh and meet with friends, watch movies and sleep.
+                    Thank you for your time.</p>
+            </article>
         </section>
     </main>
 

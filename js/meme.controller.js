@@ -5,6 +5,8 @@ let gCtx
 let xyLine1
 let xyLine2
 let gIsSavedMemesMode = false
+let gIsDownloading = false
+let gDownloadUrlElLink
 
 function openEditor() {
     gElCanvas = document.querySelector('canvas')
@@ -38,16 +40,20 @@ function renderMeme() {
     const imgs = getMemeImgs()
     const img = imgs.find(img => img.id === meme.selectedImgId)
     const imgUrl = img.url
-    drawImgFromlocal(imgUrl)
+    drawImg(imgUrl)
 }
 
-function drawImgFromlocal(imgUrl) {
+function drawImg(imgUrl) {
     const img = new Image()
     img.src = imgUrl
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawLines()
-        drawFocus()
+        if (!gIsDownloading) drawFocus()
+        else {
+            const imgContent = gElCanvas.toDataURL('image/jpeg')
+            gDownloadUrlElLink.href = imgContent
+        }
     }
 }
 
@@ -132,7 +138,6 @@ function onChangeColor(color) {
 }
 
 function onIncreaseSize() {
-
     if (!gIsSavedMemesMode) {
         const memeLineIdx = getMeme().selectedLineIdx
         increaseSize(memeLineIdx)
@@ -159,7 +164,6 @@ function onDecreaseSize() {
 }
 
 function onAlignLeft() {
-
     if (!gIsSavedMemesMode) {
         const memeLineIdx = getMeme().selectedLineIdx
         alignLeft(memeLineIdx)
@@ -186,7 +190,6 @@ function onAlignRight() {
 }
 
 function onAlignCenter() {
-
     if (!gIsSavedMemesMode) {
         const memeLineIdx = getMeme().selectedLineIdx
         alignCenter(memeLineIdx)
@@ -254,11 +257,10 @@ function onSwitchLine() {
 }
 
 function onDownloadImg(elLink) {
+    gIsDownloading = true
+    gDownloadUrlElLink = elLink
     renderMeme()
-    setTimeout(() => {
-        const imgContent = gElCanvas.toDataURL('image/jpeg')
-        elLink.href = imgContent
-    }, 1)
+    gIsDownloading = false
 }
 
 function drawFocus() {
@@ -279,23 +281,26 @@ function onSaveMeme() {
 function onClickSavedMemes() {
     const elSavedMemesContainer = document.querySelector('.saved-memes-section')
     elSavedMemesContainer.style.display = 'block'
-    const elGalleryContainer = document.querySelector('.gallery-container')
+    const elGalleryContainer = document.querySelector('.main-gallery-container')
     elGalleryContainer.style.display = 'none'
     const elMemeEditorSection = document.querySelector('.meme-editor-section')
     elMemeEditorSection.style.display = 'none'
+    const elAboutMeSection = document.querySelector('.about-section')
+    elAboutMeSection.style.display = 'none'
+    onToggleMenu()
     renderSavedMemes()
 }
 
 function renderSavedMemes() {
     const savedMemes = getSavedMemes()
     const strHtml = savedMemes.map(savedMeme => `
-    <img src="${savedMeme.selectedImgUrl}" onclick="onClickSavedMeme('${savedMeme.selectedImgUrl}',${savedMeme.selectedImgId})" alt="" />`)
+    <img src="${savedMeme.selectedImgUrl}" onclick="onClickSavedMeme(${savedMeme.selectedImgId})" alt="" />`)
 
     const elGalleryContainer = document.querySelector('.saved-memes-container')
     elGalleryContainer.innerHTML = strHtml.join('')
 }
 
-function onClickSavedMeme(imgUrl, imgId) {
+function onClickSavedMeme(imgId) {
     const elMemeEditorContainer = document.querySelector('.meme-editor-section')
     elMemeEditorContainer.style.display = 'flex'
     const elSavedMemeSection = document.querySelector('.saved-memes-section')

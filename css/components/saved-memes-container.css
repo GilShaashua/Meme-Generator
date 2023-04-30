@@ -7,3 +7,13 @@
     text-align: center;
     margin-block-end: 2rem;
 }
+
+.saved-memes-container img {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.saved-memes-container img:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}

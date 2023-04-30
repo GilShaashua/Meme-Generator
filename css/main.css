@@ -12,7 +12,9 @@
 @import url(components/canvas-container.css);
 @import url(components/editor.css);
 @import url(components/saved-memes-container.css);
+@import url(components/main-bar-section.css);
 @import url(components/gallery-container.css);
+@import url(components/about-me-section.css);
 @import url(components/main-footer.css);
 
 /* Media Queries */

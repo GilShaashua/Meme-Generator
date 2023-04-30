@@ -36,7 +36,7 @@
         background-color: var(--clr1);
         min-width: 280px;
         transform: translateX(100%);
-        transition: transform .8s, box-shadow .8s;
+        transition: transform .4s, box-shadow .4s;
     }
 
     body.menu-open .main-header .main-nav-container {
