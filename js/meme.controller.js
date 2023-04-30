@@ -5,8 +5,6 @@ let gCtx
 let xyLine1
 let xyLine2
 let gIsSavedMemesMode = false
-let gIsDownloading = false
-let gDownloadUrlElLink
 
 function openEditor() {
     gElCanvas = document.querySelector('canvas')
@@ -49,11 +47,7 @@ function drawImg(imgUrl) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawLines()
-        if (!gIsDownloading) drawFocus()
-        else {
-            const imgContent = gElCanvas.toDataURL('image/jpeg')
-            gDownloadUrlElLink.href = imgContent
-        }
+        drawFocus()
     }
 }
 
@@ -254,13 +248,6 @@ function onSwitchLine() {
         switchLine()
         renderSavedMeme(savedMeme.selectedImgId, savedMeme.selectedImgUrl)
     }
-}
-
-function onDownloadImg(elLink) {
-    gIsDownloading = true
-    gDownloadUrlElLink = elLink
-    renderMeme()
-    gIsDownloading = false
 }
 
 function drawFocus() {
